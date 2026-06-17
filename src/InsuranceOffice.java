@@ -56,5 +56,20 @@ class InsuranceOffice {
 				}
 			}
 		}
+	
+	public void printReport() {
+		System.out.println("----------" + name + "----------");
+
+		for (Policy policy : policies) {
+			System.out.println(policy);
+		}
+
+		System.out.println("--------------------------------");
+		System.out.println("Policies: " + policies.size());
+		System.out.println("Total Premium: " + calculateTotalPremium());
+		System.out.println("Renewal Forecast: " + calculateTotalRenewalForecast());
+		System.out.println("High-Risk Policies: " + countHighRiskPolicies());
+		System.out.println("--------------------------------");
+	}
 
 }
