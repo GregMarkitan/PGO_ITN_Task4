@@ -29,5 +29,27 @@ class Policy {
 	return clientName;
 	}
 
+	public double calculateFinalPremium() {
+		double premium = basePremium + ADMINISTRATIVE_FEE;
+		premium += riskLevel * 120;
+		if (vehicleValue > 60000) {
+			premium += 200;
+        	}
+
+		if (hasAlarm) {
+			premium -= 100;
+		}
+
+		if (claimFreeClient) {
+			premium *= 0.90;
+		}
+
+		if (premium < basePremium) {
+			premium = basePremium;
+		}
+
+		return Math.round(premium * 100.0) / 100.0;
+	}
+
 
 }
