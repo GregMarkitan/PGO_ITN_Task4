@@ -27,4 +27,15 @@ class InsuranceOffice {
 	return Math.round(total * 100.0) / 100.0;
 	}
 
+	public int countHighRiskPolicies() {
+		int count = 0;
+		for (Policy policy : policies) {
+			if (policy.getRiskSummary().contains("High")) {
+				count++;
+			}
+		}
+
+	return count;
+	}
+
 }
