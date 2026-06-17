@@ -37,5 +37,15 @@ class InsuranceOffice {
 
 	return count;
 	}
+	
+	public Policy findByNumber(String policyNumber) {
+		for (Policy policy : policies) {
+			if (policy.getPolicyNumber().equals(policyNumber)) {
+				return policy;
+			}
+		}
+
+	return null;
+	}
 
 }
