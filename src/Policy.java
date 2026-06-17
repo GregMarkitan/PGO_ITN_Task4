@@ -20,4 +20,14 @@ class Policy {
 		this.claimFreeClient = claimFreeClient;
 
 		createdPolicyCount++;
+	}
+	public String getPolicyNumber() {
+	return policyNumber;
+	}
+
+	public String getClientName() {
+	return clientName;
+	}
+
+
 }
