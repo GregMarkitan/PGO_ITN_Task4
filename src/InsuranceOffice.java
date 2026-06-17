@@ -17,5 +17,14 @@ class InsuranceOffice {
 
 	return Math.round(total * 100.0) / 100.0;
 	}
+	
+	public double calculateTotalRenewalForecast() {
+		double total = 0;
+		for (Policy policy : policies) {
+		total += policy.calculateRenewalPremium();
+		}
+
+	return Math.round(total * 100.0) / 100.0;
+	}
 
 }
