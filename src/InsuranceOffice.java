@@ -6,4 +6,8 @@ class InsuranceOffice {
 		this.name = name;
 		this.policies = new ArrayList<>();
     }
+	public void addPolicy(Policy policy) {
+		policies.add(policy);
+	}
 
+}
