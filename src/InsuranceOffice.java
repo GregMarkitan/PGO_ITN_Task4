@@ -48,4 +48,13 @@ class InsuranceOffice {
 	return null;
 	}
 
+	public void printCheaperThan(double threshold) {
+		System.out.println("\nPolicies cheaper than " + threshold);
+			for (Policy policy : policies) {
+				if (policy.calculateFinalPremium() < threshold) {
+					System.out.println(policy);
+				}
+			}
+		}
+
 }
