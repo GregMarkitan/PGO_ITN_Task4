@@ -51,5 +51,41 @@ class Policy {
 		return Math.round(premium * 100.0) / 100.0;
 	}
 
+	public double calculateRenewalPremium() {
+		double currentPremium = calculateFinalPremium();
+		double renewal = currentPremium;
+
+		if (riskLevel == 4) {
+			renewal *= 1.10;
+		} else if (riskLevel >= 5) {
+			renewal *= 1.20;
+		}
+
+		if (vehicleValue > 60000) {
+			renewal += 150;
+		}
+
+		if (claimFreeClient) {
+			renewal *= 0.92;
+		}
+
+		if (hasAlarm) {
+			renewal *= 0.95;
+		}
+
+		double minAllowed = currentPremium * 0.90;
+		double maxAllowed = currentPremium * 1.25;
+
+		if (renewal < minAllowed) {
+			renewal = minAllowed;
+		}
+
+		if (renewal > maxAllowed) {
+			renewal = maxAllowed;
+		}
+
+		return Math.round(renewal * 100.0) / 100.0;
+	}
+
 
 }
