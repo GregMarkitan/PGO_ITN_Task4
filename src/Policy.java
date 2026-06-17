@@ -87,5 +87,21 @@ class Policy {
 		return Math.round(renewal * 100.0) / 100.0;
 	}
 
+	public String getRiskSummary() {
+		if (riskLevel >= 5) {
+			return "Very High Risk";
+		} else if (riskLevel >= 4) {
+			return "High Risk";
+		} else if (riskLevel >= 2) {
+			return "Medium Risk";
+		} else {
+			return "Low Risk";
+		}
+	}
+
+	public static int getCreatedPolicyCount() {
+		return createdPolicyCount;
+	}
+
 
 }
