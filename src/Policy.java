@@ -103,5 +103,30 @@ class Policy {
 		return createdPolicyCount;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof Policy)) {
+			return false;
+		}
+
+		Policy other = (Policy) obj;
+
+		return Objects.equals(policyNumber, other.policyNumber);
+	}
+
+	@Override
+	public String toString() {
+		return "Policy{" +
+			"policyNumber='" + policyNumber + '\'' +
+			", clientName='" + clientName + '\'' +
+			", finalPremium=" + calculateFinalPremium() +
+			", renewalPremium=" + calculateRenewalPremium() +
+			", risk='" + getRiskSummary() + '\'' +
+			'}';
+	}
 
 }
